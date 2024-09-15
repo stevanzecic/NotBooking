@@ -13,6 +13,7 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import com.StevanZecic.NotBooking.dto.UserDTO;
 import com.StevanZecic.NotBooking.enums.UserRole;
 
 @Entity
@@ -64,6 +65,16 @@ public class User implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    public UserDTO getUserDTO() {
+        // return new UserDTO(id, username, name, userRole);
+        UserDTO userDTO = new UserDTO();
+        userDTO.setId(id);
+        userDTO.setUsername(username);
+        userDTO.setName(name);
+        userDTO.setUserRole(userRole);
+        return userDTO;
     }
 
 }
