@@ -1,6 +1,6 @@
 # NotBooking
 
-### Version: 0.1.1
+### Version: 0.1.2
 
 A simple yet effective application for Apartment/Hotel management. Built with Angular 16 and Spring Boot 3.2.9.
 
@@ -26,3 +26,5 @@ A simple yet effective application for Apartment/Hotel management. Built with An
   - NgZorroAntdModule added for NG-ZORRO configuration
   - Basic side navigation menu added
   - Register page added
+- 0.1.2 - _Registration_
+  - User registration functionality added
