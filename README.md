@@ -37,3 +37,10 @@ A simple yet effective application for Apartment/Hotel management. Built with An
     - WebSecurityConfiguration authentication added
 - 0.1.4 - _Login page_
   - Login page added to NotBookingWeb client application
+- 0.1.5 - _Admin and Guest modules_
+  - register and login URL handling added to auth service
+  - localStorage handling added
+  - Admin and Guest modules added
+  - Navitation panel adaptation based on the role of the logged in user
+  - Login page validation changed so it accepts 'admin' as username
+  - Added components for admin and guest modules which will be used for different displays

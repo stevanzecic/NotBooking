@@ -1,7 +1,19 @@
 .logo {
-    height: 32px;
-    margin: 16px;
-    background: rgba(255, 255, 255, 0.3);
+    // display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 80px;
+    // padding-top: 10px;
+    // margin: 16px 16px 16px 16px;
+    // background: rgba(255, 255, 255, 0.3);
+}
+
+.logoTitle {
+    font-size: 1.55rem;
+    margin: 0;
+    translate: -5% 25%;
+    color: #ffd900;
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 1);
 }
 
 nz-header {
