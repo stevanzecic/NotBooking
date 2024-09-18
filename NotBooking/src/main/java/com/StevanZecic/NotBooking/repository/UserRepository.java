@@ -12,7 +12,6 @@ import com.StevanZecic.NotBooking.enums.UserRole;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
-    // Optional<User> findFirstByEmail(String username);
     Optional<User> findByUsername(String username);
 
     Optional<User> findByUserRole(UserRole userRole);

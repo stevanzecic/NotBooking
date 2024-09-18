@@ -51,12 +51,11 @@ public class JwtUtil {
     }
 
     private Key getSigninKey() {
-        byte[] keyBytes = Decoders.BASE64.decode("eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0QGVtYWlsLmNvbSIsIm5pY2tuYW1lIjoi7YWM7Iqk7Yq47Jyg7KCAIiwiaWF0IjoxNjE0MDE5MzU5LCJleHAiOjE2MTQwMTk2NTl9.R9__KIcXK_MWrxc857NFGhpBTqP-FGh-pKqgcw6t6e1r7xKqi-8y6-6p6w6d6f6g6h6i6j6k6l6m6n6o6p6q6r6s6t6u6v6w6x6y6z6A6B6C6D6E6F6G6H6I6J6K6L6M6N6O6P6Q6R6S6T6U6V6W6X6Y6Z");
+        byte[] keyBytes = Decoders.BASE64.decode("aXNUaGVTZWNyZXRLZXlTZWN1cmVFbm91Z2hJZkl0SXNOb3RBc1NlY3JldGV2ZQ==");
         return Keys.hmacShaKeyFor(keyBytes);
     }
 
     private Claims extractAllClaims(String token) {
-        // return Jwts.parserBuilder().setSigningKey(getSigninKey()).build().parseClaimsJws(token).getBody();
         return Jwts.parser().setSigningKey(getSigninKey()).parseClaimsJws(token).getBody();
     }
 
