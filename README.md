@@ -1,6 +1,6 @@
 # NotBooking
 
-### Version: 0.1.3
+### Version: 0.1.4
 
 A simple yet effective application for Apartment/Hotel management. Built with Angular 16 and Spring Boot 3.2.9.
 
@@ -35,3 +35,5 @@ A simple yet effective application for Apartment/Hotel management. Built with An
     - UserService and UserServiceImpl added
     - JwtUtil fixed
     - WebSecurityConfiguration authentication added
+- 0.1.4 - _Login page_
+  - Login page added to NotBookingWeb client application
