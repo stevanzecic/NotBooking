@@ -1,11 +1,16 @@
 <nz-layout>
   <!-- No user logged in -->
-  <nz-sider nzCollapsible nzWidth="200px" *ngIf="!isAdminLoggedIn && !isGuestLoggedIn">
-    <span style="display: inline-flex;">
+  <nz-sider [nzTrigger]="null" nzWidth="200px" *ngIf="!isAdminLoggedIn && !isGuestLoggedIn">
+    <!-- <span style="display: inline-flex;">
       <img src="assets/images/Logo.png" alt="logo" class="logo">
       <div style="display: flex; align-items: center;"><p class="logoTitle">otBooking</p></div>
-    </span>
+    </span> -->
     <ul nz-menu nzTheme="dark" nzMode="inline">
+      <li nz-menu-item routerLink="/login" style="text-align: center;">
+        <img src="assets/images/Logo.png" alt="logo" style="height: 2.5em; width: 2.5em;">
+        <!-- <span nz-icon addIconLiteral="=assets/images/Logo.ico"></span> -->
+        <!-- <span style="margin: 0; padding: 0; translate: -5% 25%">otBooking</span> -->
+      </li>
       <li nz-menu-item routerLink="/register">
         <span nz-icon nzType="user"></span>
         <span><strong>Register</strong></span>
@@ -34,7 +39,7 @@
       </li>
     </ul>
   </nz-sider>
-  <!--  -->
+  <!-- Guest user logged in -->
   <nz-sider nzCollapsible nzWidth="200px" *ngIf="isGuestLoggedIn">
     <div class="logo"></div>
     <ul nz-menu nzTheme="dark" nzMode="inline">
