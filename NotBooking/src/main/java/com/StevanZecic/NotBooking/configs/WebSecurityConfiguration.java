@@ -11,7 +11,11 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import static org.springframework.security.config.http.SessionCreationPolicy.STATELESS;
+
+import com.StevanZecic.NotBooking.enums.UserRole;
 import com.StevanZecic.NotBooking.services.jwt.UserService;
 
 import lombok.RequiredArgsConstructor;
@@ -23,11 +27,17 @@ public class WebSecurityConfiguration {
 
     private final UserService userService;
 
+    private final JwtAuthenticationFilter jwtAuthenticationFilter;
+
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.csrf(AbstractHttpConfigurer::disable).authorizeHttpRequests(
             request -> request.requestMatchers("/api/auth/**").permitAll()
-        );
+            .requestMatchers("/api/admin/**").hasAnyAuthority(UserRole.ADMIN.name())
+            .requestMatchers("/api/guest/**").hasAnyAuthority(UserRole.GUEST.name())
+            .anyRequest().authenticated())
+            .sessionManagement(manager -> manager.sessionCreationPolicy(STATELESS))
+            .authenticationProvider(authenticationProvider()).addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class );
         return http.build();
     }
 
