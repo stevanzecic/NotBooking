@@ -11,6 +11,8 @@ import com.StevanZecic.NotBooking.dto.RoomDTO;
 import com.StevanZecic.NotBooking.services.admin.rooms.RoomsService;
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 
 @RestController
 @RequestMapping("/api/admin")
@@ -28,5 +30,11 @@ public class RoomsController {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
         }
     }
+
+    @GetMapping("/rooms/{pgNum}")
+    public ResponseEntity<?> getAllRooms(@PathVariable int pgNum) {
+        return ResponseEntity.ok(roomsService.getAllRooms(pgNum));
+    }
+
 
 }

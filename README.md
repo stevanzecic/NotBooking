@@ -3,7 +3,7 @@
 
 # NotBooking
 
-### Version: 0.1.8
+### Version: 0.1.9
 
 A simple yet effective application for Apartment/Hotel management. Built with Angular 16 and Spring Boot 3.2.9.
 
@@ -58,6 +58,9 @@ A simple yet effective application for Apartment/Hotel management. Built with An
 - 0.1.8 - _Rooms page_
   - Add Room page added to NotBookingWeb client application
   - Adding Room form functionality added
+- 0.1.9 - _Rooms fetching API_
+  - RoomsResponseDTO added
+  - Rooms fetching API with pagination added
 
 - - -
 - - -

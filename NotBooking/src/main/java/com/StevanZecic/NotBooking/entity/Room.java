@@ -1,5 +1,7 @@
 package com.StevanZecic.NotBooking.entity;
 
+import com.StevanZecic.NotBooking.dto.RoomDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -21,5 +23,15 @@ public class Room {
     private Long price;
 
     private boolean isAvailable;
+
+    public RoomDTO getRoomDTO() {
+        RoomDTO roomDTO = new RoomDTO();
+        roomDTO.setId(this.id);
+        roomDTO.setName(this.name);
+        roomDTO.setType(this.type);
+        roomDTO.setPrice(this.price);
+        roomDTO.setAvailable(this.isAvailable);
+        return roomDTO;
+    }
 
 }

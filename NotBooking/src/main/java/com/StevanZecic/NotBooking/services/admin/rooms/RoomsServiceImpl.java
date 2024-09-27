@@ -1,10 +1,16 @@
 package com.StevanZecic.NotBooking.services.admin.rooms;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import com.StevanZecic.NotBooking.dto.RoomDTO;
+import com.StevanZecic.NotBooking.dto.RoomsResponseDTO;
 import com.StevanZecic.NotBooking.entity.Room;
 import com.StevanZecic.NotBooking.repository.RoomRepository;
+
+import java.util.stream.Collectors;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,4 +34,13 @@ public class RoomsServiceImpl implements RoomsService {
         }
     }
 
+    public RoomsResponseDTO getAllRooms(int pgNum) {
+        Pageable pageble = PageRequest.of(pgNum, 10);
+        Page<Room> page = roomRepository.findAll(pageble);
+        RoomsResponseDTO roomsResponseDTO = new RoomsResponseDTO();
+        roomsResponseDTO.setCurrPage(page.getPageable().getPageNumber());
+        roomsResponseDTO.setTotPages(page.getTotalPages());
+        roomsResponseDTO.setRooms(page.stream().map(Room::getRoomDTO).collect(Collectors.toList()));
+        return roomsResponseDTO;
+    }
 }
