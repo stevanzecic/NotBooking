@@ -1,23 +1,17 @@
-<nz-layout>
+<nz-layout class="app-layout">
   <!-- No user logged in -->
   <nz-sider [nzTrigger]="null" nzWidth="200px" *ngIf="!isAdminLoggedIn && !isGuestLoggedIn">
-    <!-- <span style="display: inline-flex;">
-      <img src="assets/images/Logo.png" alt="logo" class="logo">
-      <div style="display: flex; align-items: center;"><p class="logoTitle">otBooking</p></div>
-    </span> -->
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <li nz-menu-item routerLink="/login" style="text-align: center;">
         <img src="assets/images/Logo.png" alt="logo" style="height: 2.5em; width: 2.5em;">
-        <!-- <span nz-icon addIconLiteral="=assets/images/Logo.ico"></span> -->
-        <!-- <span style="margin: 0; padding: 0; translate: -5% 25%">otBooking</span> -->
-      </li>
-      <li nz-menu-item routerLink="/register">
-        <span nz-icon nzType="user"></span>
-        <span><strong>Register</strong></span>
       </li>
       <li nz-menu-item routerLink="/">
         <span nz-icon nzType="login"></span>
         <span><strong>Login</strong></span>
+      </li>
+      <li nz-menu-item routerLink="/register">
+        <span nz-icon nzType="user"></span>
+        <span><strong>Register</strong></span>
       </li>
     </ul>
   </nz-sider>
@@ -26,15 +20,17 @@
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <li nz-menu-item routerLink="/login" style="text-align: center;">
         <img src="assets/images/Logo.png" alt="logo" style="height: 2.5em; width: 2.5em;">
-        <!-- <span nz-icon addIconLiteral="=assets/images/Logo.ico"></span> -->
-        <!-- <span style="margin: 0; padding: 0; translate: -5% 25%">otBooking</span> -->
+      </li>
+      <li nz-menu-item routerLink="/admin/add-room">
+        <span nz-icon nzType="plus-square"></span>
+        <span><strong>Create Room</strong></span>
       </li>
       <li nz-menu-item routerLink="/admin/rooms">
-        <span nz-icon nzType="apartment"></span>
+        <span nz-icon nzType="home"></span>
         <span><strong>Rooms</strong></span>
       </li>
       <li nz-menu-item routerLink="/admin/reservations">
-        <span nz-icon nzType="pull-request"></span>
+        <span nz-icon nzType="calendar"></span>
         <span><strong>Reservations</strong></span>
       </li>
       <li nz-menu-item (click)="logout()">
@@ -48,15 +44,13 @@
     <ul nz-menu nzTheme="dark" nzMode="inline">
       <li nz-menu-item routerLink="/login" style="text-align: center;">
         <img src="assets/images/Logo.png" alt="logo" style="height: 2.5em; width: 2.5em;">
-        <!-- <span nz-icon addIconLiteral="=assets/images/Logo.ico"></span> -->
-        <!-- <span style="margin: 0; padding: 0; translate: -5% 25%">otBooking</span> -->
       </li>
       <li nz-menu-item routerLink="/admin/rooms">
-        <span nz-icon nzType="apartment"></span>
+        <span nz-icon nzType="home"></span>
         <span><strong>Rooms</strong></span>
       </li>
       <li nz-menu-item routerLink="/guest/bookings">
-        <span nz-icon nzType="pull-request"></span>
+        <span nz-icon nzType="calendar"></span>
         <span><strong>Bookings</strong></span>
       </li>
       <li nz-menu-item (click)="logout()">

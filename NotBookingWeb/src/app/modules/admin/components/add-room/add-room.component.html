@@ -1,0 +1,28 @@
+<div class="room-details-form-container">
+    <nz-form nzLayout="vertical" [formGroup]="roomDetailsForm" class="room-details-form">
+        <div class="form-title">Room Details</div>
+        <nz-form-item>
+            <nz-form-control [nzSpan]="16" [nzOffset]="4" nzHasFeedback nzErrorTip="Please enter a room name">
+                <input nz-input formControlName="name" placeholder="Name" [(ngModel)]="name" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control [nzSpan]="16" [nzOffset]="4" nzHasFeedback nzErrorTip="Please enter a room type">
+                <input nz-input formControlName="type" placeholder="Type" [(ngModel)]="type" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-control [nzSpan]="16" [nzOffset]="4" nzHasFeedback nzErrorTip="Please enter a room price">
+                <input nz-input formControlName="price" placeholder="Price" [(ngModel)]="price" />
+            </nz-form-control>
+        </nz-form-item>
+        <nz-form-item style="justify-content: center;">
+            <div style="color: white; text-shadow: 1px 1px 10px red;" *ngIf="formError != ''">{{ formError }}</div>
+        </nz-form-item>
+        <nz-form-item>
+            <nz-form-label nz-form-item-control [nzSpan]="11" [nzOffset]="4">
+                <button nz-button nzType="primary" class="submit-button" type="submit" (click)="submitForm()">Submit</button>
+            </nz-form-label>
+        </nz-form-item>
+    </nz-form>
+</div>
