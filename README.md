@@ -61,6 +61,9 @@ A simple yet effective application for Apartment/Hotel management. Built with An
 - 0.1.9 - _Rooms fetching API_
   - RoomsResponseDTO added
   - Rooms fetching API with pagination added
+- 0.1.10 - _Rooms page_
+  - Rooms page added to NotBookingWeb client application
+  - Rooms listing dashboard page for admin added
 
 - - -
 - - -

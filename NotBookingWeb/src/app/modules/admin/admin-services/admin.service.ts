@@ -17,6 +17,11 @@ export class AdminService {
       headers: this.createAuthorizationHeader()});
   }
 
+  getRooms(pgNum: number): Observable<any> {
+    return this.http.get(BASE_URL + `api/admin/rooms/${pgNum}`, {
+      headers: this.createAuthorizationHeader()});
+  }
+
   createAuthorizationHeader(){
     let authHeader: HttpHeaders = new HttpHeaders();
     return authHeader.set('Authorization', 'Bearer ' + UserStorageService.getToken());
