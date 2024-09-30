@@ -7,13 +7,15 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { NgZorroAntdModule } from 'src/app/NgZorroAntdModule';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UpdateRoomComponent } from './components/update-room/update-room.component';
 
 
 @NgModule({
   declarations: [
     AdminComponent,
     DashboardComponent,
-    AddRoomComponent
+    AddRoomComponent,
+    UpdateRoomComponent
   ],
   imports: [
     CommonModule,

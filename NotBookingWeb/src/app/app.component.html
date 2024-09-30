@@ -2,7 +2,7 @@
   <!-- No user logged in -->
   <nz-sider [nzTrigger]="null" nzWidth="200px" *ngIf="!isAdminLoggedIn && !isGuestLoggedIn">
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item routerLink="/login" style="text-align: center;">
+      <li nz-menu-item routerLink="/" style="text-align: center;">
         <img src="assets/images/Logo.png" alt="logo" style="height: 2.5em; width: 2.5em;">
       </li>
       <li nz-menu-item routerLink="/">
@@ -18,10 +18,10 @@
   <!-- Admin user logged in -->
   <nz-sider [nzTrigger]="null" nzWidth="200px" *ngIf="isAdminLoggedIn">
     <ul nz-menu nzTheme="dark" nzMode="inline">
-      <li nz-menu-item routerLink="/login" style="text-align: center;">
+      <li nz-menu-item routerLink="/admin/dashboard" style="text-align: center;" nzSelected="testRoute('admin/dashboard')" >
         <img src="assets/images/Logo.png" alt="logo" style="height: 2.5em; width: 2.5em;">
       </li>
-      <li nz-menu-item routerLink="/admin/add-room">
+      <li nz-menu-item routerLink="/admin/add-room" nzSelected="testRoute('admin/add-room')">
         <span nz-icon nzType="plus-square"></span>
         <span><strong>Create Room</strong></span>
       </li>

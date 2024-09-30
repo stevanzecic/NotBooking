@@ -1,0 +1,55 @@
+.room-details-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    background-color: #f0f2f5;
+}
+
+.room-details-form {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 400px;
+    width: 100%;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: #061729;
+    color: #fff;
+}
+
+.form-title {
+    font-size: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.nz-form-item-control {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    width: 100%;
+    background-color: #394b59;
+    color: #a8b6c2;
+}
+
+input {
+    margin-bottom: 12px;
+    padding: 8px;
+    background-color: #394b59;
+    color: #fff;
+    border: 1px solid #394b59;
+    border-radius: 4px;
+    // text-shadow: 1px 1px 0px black,
+    //                 -1px 1px 0px black,
+    //                 1px -1px 0px black,
+    //                 -1px -1px 0px black;
+}
+
+input::placeholder {
+    color: #a8b6c2;
+}

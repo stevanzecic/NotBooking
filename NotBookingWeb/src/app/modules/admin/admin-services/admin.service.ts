@@ -22,6 +22,24 @@ export class AdminService {
       headers: this.createAuthorizationHeader()});
   }
 
+  getRoomById(iD: number): Observable<any> {
+    return this.http.get(BASE_URL + `api/admin/room/${iD}`, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
+  updateRoom(iD: number, roomDTO: any): Observable<any> {
+    return this.http.put(BASE_URL + `api/admin/room/${iD}`, roomDTO, {
+      headers: this.createAuthorizationHeader()
+    })
+  }
+
+  deleteRoom(iD: number): Observable<any> {
+    return this.http.delete(BASE_URL + `api/admin/room/${iD}`, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
   createAuthorizationHeader(){
     let authHeader: HttpHeaders = new HttpHeaders();
     return authHeader.set('Authorization', 'Bearer ' + UserStorageService.getToken());

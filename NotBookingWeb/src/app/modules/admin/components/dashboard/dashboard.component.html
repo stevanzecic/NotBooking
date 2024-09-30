@@ -1,5 +1,5 @@
 <div class="center-form">
-    <button nz-button nzType="primary" routerLink="/admin/room" class="add-room-button">Add Room</button>
+    <button nz-button nzType="primary" routerLink="/admin/add-room" class="add-room-button">Add Room</button>
     <div class="dashboard-container">
         <div class="dashboard-row" *ngFor="let room of rooms">
             <nz-card style="width: 300px; margin: 16px;" [nzActions]="[actionEdit, actionDelete]">
@@ -14,11 +14,11 @@
                 </nz-avatar>
             </ng-template>
             <ng-template #actionEdit>
-                <span nz-icon nzType="edit" [nzTheme]="'twotone'" class="icon">
+                <span nz-icon nzType="edit" [nzTheme]="'twotone'" class="icon" routerLink="/admin/room/{{ room.id }}/edit">
                 </span>
             </ng-template>
             <ng-template #actionDelete>
-                <span nz-icon nzType="delete" [nzTheme]="'twotone'" class="icon" [nzTwotoneColor]="'#FF0000'">
+                <span nz-icon nzType="delete" [nzTheme]="'twotone'" class="icon" [nzTwotoneColor]="'#FF0000'" (click)="delConfirm(room.id)">
                 </span>
             </ng-template>
         </div>

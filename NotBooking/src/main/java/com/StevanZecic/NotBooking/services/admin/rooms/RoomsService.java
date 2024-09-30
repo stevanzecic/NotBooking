@@ -9,4 +9,10 @@ public interface RoomsService {
 
     RoomsResponseDTO getAllRooms(int pgNum);
 
+    RoomDTO getRoomById(Long id);
+
+    boolean updateRoom(Long iD, RoomDTO roomDTO);
+
+    void deleteRoom(Long iD);
+
 }
