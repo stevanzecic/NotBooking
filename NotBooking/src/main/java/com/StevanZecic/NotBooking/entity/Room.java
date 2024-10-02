@@ -14,7 +14,7 @@ public class Room {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long iD;
 
     private String name;
 
@@ -26,7 +26,7 @@ public class Room {
 
     public RoomDTO getRoomDTO() {
         RoomDTO roomDTO = new RoomDTO();
-        roomDTO.setId(this.id);
+        roomDTO.setID(this.iD);
         roomDTO.setName(this.name);
         roomDTO.setType(this.type);
         roomDTO.setPrice(this.price);

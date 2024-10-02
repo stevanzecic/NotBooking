@@ -1,0 +1,33 @@
+.center-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    width: 100%;
+}
+
+.page-title {
+    margin-bottom: 20px;
+    font-size: 20px;
+    color: #061729;
+}
+
+.icon {
+    font-size: 25px;
+    margin: 5px;
+    cursor: pointer;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+}
+
+th {
+    text-align: center;
+}
+
+tr {
+    text-align: center;
+}

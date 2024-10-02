@@ -40,6 +40,16 @@ export class AdminService {
     });
   }
 
+  getReservations(pgNum: number): Observable<any> {
+    return this.http.get(BASE_URL + `api/admin/reservations/${pgNum}`, {
+      headers: this.createAuthorizationHeader()});
+  }
+
+  changeResStatus(resId: number, resStatus: string): Observable<any> {
+    return this.http.get(BASE_URL + `api/admin/reservation/${resId}/${resStatus}`, {
+      headers: this.createAuthorizationHeader()});
+  }
+
   createAuthorizationHeader(){
     let authHeader: HttpHeaders = new HttpHeaders();
     return authHeader.set('Authorization', 'Bearer ' + UserStorageService.getToken());

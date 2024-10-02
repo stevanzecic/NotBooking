@@ -13,7 +13,7 @@
                 </nz-avatar>
             </ng-template>
             <ng-template #actionEdit>
-                <span nz-icon nzType="check-square" [nzTheme]="'twotone'" class="icon">
+                <span nz-icon nzType="check-square" [nzTheme]="'twotone'" class="icon" (click)="showModalMiddle(room.id)">
                 </span>
             </ng-template>
         </div>
@@ -22,3 +22,11 @@
         <nz-pagination [nzPageIndex]="currPage" [nzTotal]="totRooms" [nzPageSize]="1" (nzPageIndexChange)="pageIndexChange($event)"></nz-pagination>
     </div>
 </div>
+
+<nz-modal [(nzVisible)]="isVisibleMiddle" nzTitle="Book a Room" nzCentered (nzOnCancel)="handleCancelMiddle()" (nzOnOk)="handleOkMiddle()">
+    <ng-container *nzModalContent>
+        <div class="modal-content">
+            <nz-range-picker style="width: 100%;" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+        </div>
+    </ng-container>
+</nz-modal>

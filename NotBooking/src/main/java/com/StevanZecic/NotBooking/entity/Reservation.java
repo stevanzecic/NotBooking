@@ -5,6 +5,7 @@ import java.time.LocalDate;
 import org.hibernate.annotations.OnDelete;
 import org.hibernate.annotations.OnDeleteAction;
 
+import com.StevanZecic.NotBooking.dto.ReservationDTO;
 import com.StevanZecic.NotBooking.enums.ReservStatus;
 
 import jakarta.persistence.Entity;
@@ -22,7 +23,7 @@ public class Reservation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long iD;
     private LocalDate checkIn;
     private LocalDate checkOut;
     private Long price;
@@ -37,5 +38,24 @@ public class Reservation {
     @JoinColumn(name = "user_id", nullable = false)
     @OnDelete(action = OnDeleteAction.CASCADE)
     private User user;
+
+    public ReservationDTO getReservationDTO() {
+        ReservationDTO resDTO = new ReservationDTO();
+
+        resDTO.setID(iD);
+        resDTO.setPrice(price);
+        resDTO.setCheckIn(checkIn);
+        resDTO.setCheckOut(checkOut);
+        resDTO.setResStatus(resStatus);
+
+        resDTO.setUserId(user.getId());
+        resDTO.setUserName(user.getUsername());
+
+        resDTO.setRoomId(room.getID());
+        resDTO.setRoomName(room.getName());
+        resDTO.setRoomType(room.getType());
+
+        return resDTO;
+    }
 
 }

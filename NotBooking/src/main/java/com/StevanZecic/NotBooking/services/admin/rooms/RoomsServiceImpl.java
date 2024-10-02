@@ -47,8 +47,8 @@ public class RoomsServiceImpl implements RoomsService {
         return roomsResponseDTO;
     }
 
-    public RoomDTO getRoomById(Long id) {
-        Optional<Room> room = roomRepository.findById(id);
+    public RoomDTO getRoomById(Long iD) {
+        Optional<Room> room = roomRepository.findById(iD);
         if (room.isPresent()) {
             return room.get().getRoomDTO();
         } else {

@@ -1,0 +1,58 @@
+<div class="center-form">
+    <h1 class="page-title">Reservations</h1>
+    <nz-table #basicTable [nzShowPagination]="'false'" [nzData]="reservations">
+        <thead>
+            <tr>
+                <th>Room Name</th>
+                <th>Room Type</th>
+                <th>Check In</th>
+                <th>Check Out</th>
+                <th>Price</th>
+                <th>Guest</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let res of basicTable.data">
+                <td>{{ res.roomName }}</td>
+                <td>{{ res.roomType }}</td>
+                <td>{{ res.checkIn }}</td>
+                <td>{{ res.checkOut }}</td>
+                <td>{{ res.price }}</td>
+                <td>{{ res.userName }}</td>
+                <td>
+                    <ng-container *ngIf="res.resStatus === 'CONFIRMED'">
+                        <nz-tag nzColor="success">
+                            <span nz-icon nzType="check-circle"></span>
+                            <span>Confirmed</span>
+                        </nz-tag>
+                    </ng-container>
+                    <ng-container *ngIf="res.resStatus === 'CANCELLED'">
+                        <nz-tag nzColor="error">
+                            <span nz-icon nzType="close-circle"></span>
+                            <span>Cancelled</span>
+                        </nz-tag>
+                    </ng-container>
+                    <ng-container *ngIf="res.resStatus === 'PENDING'">
+                        <nz-tag nzColor="processing">
+                            <span nz-icon nzType="clock-circle"></span>
+                            <span>Pending</span>
+                        </nz-tag>
+                    </ng-container>
+                </td>
+                <td>
+                    <ng-container *ngIf="res.resStatus === 'PENDING'">
+                        <span nz-icon [nzType]="'check-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#52c41a'" class="icon" (click)="changeReservationStatus(res.id, 'Confirm')">
+                        </span>
+                        <span nz-icon [nzType]="'close-circle'" [nzTheme]="'twotone'" [nzTwotoneColor]="'#ff0000'" class="icon" (click)="changeReservationStatus(res.id, 'Cancel')">
+                        </span>
+                    </ng-container>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+    <div class="pagination">
+        <nz-pagination (nzPageIndexChange)="pgIndexChange($event)" [nzPageIndex]="currPage" [nzTotal]="totRes" [nzPageSize]="5"></nz-pagination>
+    </div>
+</div>

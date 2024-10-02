@@ -5,6 +5,7 @@ import { GuestRoutingModule } from './guest-routing.module';
 import { GuestComponent } from './guest.component';
 import { RoomsComponent } from './components/rooms/rooms.component';
 import { NgZorroAntdModule } from 'src/app/NgZorroAntdModule';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { NgZorroAntdModule } from 'src/app/NgZorroAntdModule';
   imports: [
     CommonModule,
     GuestRoutingModule,
-    NgZorroAntdModule
+    NgZorroAntdModule,
+    FormsModule
   ]
 })
 export class GuestModule { }

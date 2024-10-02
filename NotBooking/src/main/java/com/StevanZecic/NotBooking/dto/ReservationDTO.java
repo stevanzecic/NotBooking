@@ -9,7 +9,7 @@ import lombok.Data;
 @Data
 public class ReservationDTO {
 
-    private Long id;
+    private Long iD;
     private LocalDate checkIn;
     private LocalDate checkOut;
     private Long price;

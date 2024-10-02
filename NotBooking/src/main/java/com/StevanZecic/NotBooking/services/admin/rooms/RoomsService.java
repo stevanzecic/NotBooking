@@ -9,7 +9,7 @@ public interface RoomsService {
 
     RoomsResponseDTO getAllRooms(int pgNum);
 
-    RoomDTO getRoomById(Long id);
+    RoomDTO getRoomById(Long iD);
 
     boolean updateRoom(Long iD, RoomDTO roomDTO);
 
