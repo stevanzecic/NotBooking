@@ -43,7 +43,7 @@ export class LoginComponent {
         if (UserStorageService.isAdminLoggedIn()) {
           this.router.navigateByUrl("/admin/dashboard");
         } else if (UserStorageService.isGuestLoggedIn()) {
-          this.router.navigateByUrl("/guest/rooms");
+          this.router.navigateByUrl("/guest");
         }
       }
     }, error => {

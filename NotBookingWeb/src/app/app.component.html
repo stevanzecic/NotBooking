@@ -48,13 +48,13 @@
       <li class="menu-header-logo">
         <img src="assets/images/Logo.png" alt="logo" style="height: 2.5em; width: 2.5em;">
       </li>
+      <li nz-menu-item routerLink="/guest/bookings">
+        <span nz-icon nzType="calendar"></span>
+        <span><strong>Reservations</strong></span>
+      </li>
       <li nz-menu-item routerLink="/guest/rooms">
         <span nz-icon nzType="home"></span>
         <span><strong>Rooms</strong></span>
-      </li>
-      <li nz-menu-item routerLink="/guest/bookings">
-        <span nz-icon nzType="calendar"></span>
-        <span><strong>Bookings</strong></span>
       </li>
       <li nz-menu-item (click)="logout()">
         <span nz-icon nzType="logout"></span>

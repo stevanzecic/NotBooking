@@ -17,6 +17,12 @@ export class GuestService {
       headers: this.createAuthorizationHeader()});
   }
 
+  getMyRooms(pgNum: number): Observable<any> {
+    const userId = UserStorageService.getUserId();
+    return this.http.get(BASE_URL + `api/guest/bookings/${userId}/${pgNum}`, {
+      headers: this.createAuthorizationHeader()});
+  }
+
   bookRoom(bookingDTO: any): Observable<any> {
     return this.http.post(BASE_URL + `api/guest/book`, bookingDTO, {
       headers: this.createAuthorizationHeader()});

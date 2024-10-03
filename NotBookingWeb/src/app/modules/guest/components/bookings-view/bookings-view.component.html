@@ -1,0 +1,47 @@
+<div class="enter-form">
+    <h1 class="page-title">Bookings</h1>
+    <nz-table #basicTable [nzData]="bookingList" [nzShowPagination]="'false'">
+        <thead>
+            <tr>
+                <th>Room Name</th>
+                <th>Room Type</th>
+                <th>Check In</th>
+                <th>Check Out</th>
+                <th>Price</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let booking of basicTable.data">
+                <td>{{ booking.roomName }}</td>
+                <td>{{ booking.roomType }}</td>
+                <td>{{ booking.checkIn }}</td>
+                <td>{{ booking.checkOut }}</td>
+                <td>{{ booking.price }}</td>
+                <td>
+                    <ng-container *ngIf="booking.resStatus === 'PENDING'">
+                        <nz-tag nzColor="processing">
+                            <span nz-icon nzType="sync" nzSpin></span>
+                            <span>Pending</span>
+                        </nz-tag>
+                    </ng-container>
+                    <ng-container *ngIf="booking.resStatus === 'CONFIRMED'">
+                        <nz-tag nzColor="success">
+                            <span nz-icon nzType="check-circle"></span>
+                            <span>Confirmed</span>
+                        </nz-tag>
+                    </ng-container>
+                    <ng-container *ngIf="booking.resStatus === 'CANCELLED'">
+                        <nz-tag nzColor="error">
+                            <span nz-icon nzType="close-circle"></span>
+                            <span>Cancelled</span>
+                        </nz-tag>
+                    </ng-container>
+                </td>
+            </tr>
+        </tbody>
+    </nz-table>
+    <div class="pagination">
+        <nz-pagination (nzPageIndexChange)="pgIndexChange($event)" [nzPageIndex]="currPg" [nzTotal]="totalPgs" [nzPageSize]="5"></nz-pagination>
+    </div>
+</div>

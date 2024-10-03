@@ -4,9 +4,13 @@ import java.lang.StackWalker.Option;
 import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.StevanZecic.NotBooking.dto.ReservationDTO;
+import com.StevanZecic.NotBooking.dto.ReservationResponseDTO;
 import com.StevanZecic.NotBooking.entity.Reservation;
 import com.StevanZecic.NotBooking.entity.Room;
 import com.StevanZecic.NotBooking.entity.User;
@@ -16,6 +20,7 @@ import com.StevanZecic.NotBooking.repository.RoomRepository;
 import com.StevanZecic.NotBooking.repository.UserRepository;
 
 import lombok.RequiredArgsConstructor;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
@@ -24,6 +29,8 @@ public class BookingServiceImpl implements BookingService {
     private final UserRepository userRepository;
     private final RoomRepository roomRepository;
     private final ReservationRepository reservationRepository;
+
+    public static final int RES_PER_PAGE = 6;
 
     public boolean createReservation(ReservationDTO reservationDTO) {
         Optional<User> user = userRepository.findById(reservationDTO.getUserId());
@@ -45,4 +52,13 @@ public class BookingServiceImpl implements BookingService {
         return false;
     }
 
+    public ReservationResponseDTO getAllReservationByUserId(Long userId, int pgNum) {
+        Pageable pageable = PageRequest.of(pgNum, RES_PER_PAGE);
+        Page<Reservation> reservationPg = reservationRepository.findAllByUserId(pageable, userId);
+        ReservationResponseDTO reservationRespDTO = new ReservationResponseDTO();
+        reservationRespDTO.setResDTOList(reservationPg.stream().map(Reservation::getReservationDTO).collect(Collectors.toList()));
+        reservationRespDTO.setPgNum(reservationPg.getPageable().getPageNumber());
+        reservationRespDTO.setTotPgs(reservationPg.getTotalPages());
+        return reservationRespDTO;
+    }
 }

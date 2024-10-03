@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ReservationRepository extends JpaRepository<Reservation, Long> {
 
-    Page<Repository> findByUserId(Pageable pageable, Long userId);
+    Page<Reservation> findAllByUserId(Pageable pageable, Long userId);
 
 }
