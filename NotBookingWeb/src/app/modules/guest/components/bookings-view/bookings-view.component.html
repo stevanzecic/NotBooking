@@ -3,12 +3,13 @@
     <nz-table #basicTable [nzData]="bookingList" [nzShowPagination]="'false'">
         <thead>
             <tr>
-                <th>Room Name</th>
+                <th>Room</th>
                 <th>Room Type</th>
                 <th>Check In</th>
                 <th>Check Out</th>
                 <th>Price</th>
                 <th>Status</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
@@ -38,6 +39,18 @@
                         </nz-tag>
                     </ng-container>
                 </td>
+                <td>
+                    <ng-container *ngIf="booking.resStatus !== 'CANCELLED'">
+                        <nz-tag nzColor="warning" (click)="showModalMiddle(booking.id, booking.roomId)">
+                            <span nz-icon nzType="edit" nzTheme="outline"></span>
+                            <span>Edit</span>
+                        </nz-tag>
+                        <nz-tag nzColor="error" (click)="delConfirm(booking.id)">
+                            <span nz-icon nzType="delete" nzTheme="outline"></span>
+                            <span>Cancel</span>
+                        </nz-tag>
+                    </ng-container>
+                </td>
             </tr>
         </tbody>
     </nz-table>
@@ -45,3 +58,11 @@
         <nz-pagination (nzPageIndexChange)="pgIndexChange($event)" [nzPageIndex]="currPg" [nzTotal]="totalPgs" [nzPageSize]="5"></nz-pagination>
     </div>
 </div>
+
+<nz-modal [(nzVisible)]="isVisibleMiddle" nzTitle="Edit Reservation" nzCentered (nzOnCancel)="handleCancelMiddle()" (nzOnOk)="handleOkMiddle()">
+    <ng-container *nzModalContent>
+        <div class="modal-content">
+            <nz-range-picker style="width: 100%;" [(ngModel)]="date" (ngModelChange)="onChange($event)"></nz-range-picker>
+        </div>
+    </ng-container>
+</nz-modal>

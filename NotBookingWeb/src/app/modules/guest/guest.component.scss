@@ -32,11 +32,13 @@ body {
   .content {
     position: absolute;
     z-index: 1;
-    top: 10%;
-    left: 50%;
-    margin-top: 105px;
-    margin-left: -145px;
-    width: 300px;
+    // top: 10%;
+    top: 50%;
+    left: 60%;
+    // margin-top: 105px;
+    // margin-left: -145px;
+    // width: 300px;
+    transform: translate(-65%, -50%);
     height: 350px;
     text-align: center;
     transition: all 1000ms;

@@ -28,6 +28,12 @@ export class GuestService {
       headers: this.createAuthorizationHeader()});
   }
 
+  deleteBooking(iD: number): Observable<any> {
+    return this.http.delete(BASE_URL + `api/guest/bookings/${iD}/delete`, {
+      headers: this.createAuthorizationHeader()
+    });
+  }
+
   createAuthorizationHeader(){
     let authHeader: HttpHeaders = new HttpHeaders();
     return authHeader.set('Authorization', 'Bearer ' + UserStorageService.getToken());

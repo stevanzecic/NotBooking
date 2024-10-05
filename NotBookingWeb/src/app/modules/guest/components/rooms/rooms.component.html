@@ -9,11 +9,12 @@
                 </nz-skeleton>
             </nz-card>
             <ng-template #avatarTemplate>
-                <nz-avatar nzSrc="https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D">
+                <!-- <nz-avatar nzSrc="https://images.unsplash.com/photo-1629140727571-9b5c6f6267b4?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"> -->
+                <nz-avatar nzSrc="../../../../../assets/images/room-img.jpg">
                 </nz-avatar>
             </ng-template>
             <ng-template #actionEdit>
-                <span nz-icon nzType="check-square" [nzTheme]="'twotone'" class="icon" (click)="showModalMiddle(room.id)">
+                <span nz-icon nzType="schedule" [nzTheme]="'twotone'" class="icon" (click)="showModalMiddle(room.id)">
                 </span>
             </ng-template>
         </div>

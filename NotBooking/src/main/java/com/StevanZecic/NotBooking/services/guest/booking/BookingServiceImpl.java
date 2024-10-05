@@ -19,6 +19,7 @@ import com.StevanZecic.NotBooking.repository.ReservationRepository;
 import com.StevanZecic.NotBooking.repository.RoomRepository;
 import com.StevanZecic.NotBooking.repository.UserRepository;
 
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import java.util.stream.Collectors;
 
@@ -60,5 +61,14 @@ public class BookingServiceImpl implements BookingService {
         reservationRespDTO.setPgNum(reservationPg.getPageable().getPageNumber());
         reservationRespDTO.setTotPgs(reservationPg.getTotalPages());
         return reservationRespDTO;
+    }
+
+    public void deleteReservation(Long iD) {
+        Optional<Reservation> res = reservationRepository.findById(iD);
+        if (res.isPresent()) {
+            reservationRepository.deleteById(iD);
+        } else {
+            throw new EntityNotFoundException("Reservation not found");
+        }
     }
 }

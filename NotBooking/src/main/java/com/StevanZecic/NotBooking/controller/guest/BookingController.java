@@ -12,8 +12,10 @@ import com.StevanZecic.NotBooking.dto.ReservationDTO;
 import com.StevanZecic.NotBooking.services.guest.booking.BookingService;
 
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RequestMethod;
+
 
 
 @RestController
@@ -42,4 +44,13 @@ public class BookingController {
         }
     }
 
+    @RequestMapping(value="/bookings/{iD}/delete", method=RequestMethod.DELETE)
+    public ResponseEntity<?> deleteReservation(@PathVariable Long iD) {
+        try {
+            bookingService.deleteReservation(iD);
+            return ResponseEntity.status(HttpStatus.OK).build();
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Oops! Something went wrong");
+        }
+    }
 }

@@ -7,5 +7,6 @@ public interface BookingService {
 
     boolean createReservation(ReservationDTO reservationDTO);
     ReservationResponseDTO getAllReservationByUserId(Long userId, int pgNum);
+    void deleteReservation(Long iD);
 
 }
