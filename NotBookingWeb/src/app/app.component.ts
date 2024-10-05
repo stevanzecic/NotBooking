@@ -27,6 +27,9 @@ export class AppComponent {
   logout() {
     UserStorageService.signOut();
     this.router.navigateByUrl("/");
+    setTimeout(() => {
+      window.location.reload();
+    }, 100);
   }
 
 }

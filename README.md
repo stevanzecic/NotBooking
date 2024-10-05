@@ -3,7 +3,7 @@
 
 # NotBooking
 
-### Version: 0.2.1
+### Version: 0.2.2
 
 A simple yet effective application for Apartment/Hotel management. Built with Angular 16 and Spring Boot 3.2.9.
 
@@ -83,5 +83,8 @@ A simple yet effective application for Apartment/Hotel management. Built with An
     - Deletion of bookings functionality added to NotBookingWeb client application
     - Booking removal API added to NotBooking server-side application
   - Minor changes to the UI
+- 0.2.2 - _Welcome Screen_
+  - Welcome screen added to NotBookingWeb client application
+  - It is displayed before the user logs in and after login before the page is chosen
 - - -
 - - -

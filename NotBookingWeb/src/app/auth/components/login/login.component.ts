@@ -41,9 +41,9 @@ export class LoginComponent {
         UserStorageService.saveToken(res.token);
 
         if (UserStorageService.isAdminLoggedIn()) {
-          this.router.navigateByUrl("/admin/dashboard");
+          this.router.navigateByUrl("/");
         } else if (UserStorageService.isGuestLoggedIn()) {
-          this.router.navigateByUrl("/guest");
+          this.router.navigateByUrl("/");
         }
       }
     }, error => {
