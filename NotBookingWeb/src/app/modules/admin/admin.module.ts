@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 
 import { AdminRoutingModule } from './admin-routing.module';
 import { AdminComponent } from './admin.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { RoomsComponent } from './components/rooms/rooms.component';
 import { AddRoomComponent } from './components/add-room/add-room.component';
 import { NgZorroAntdModule } from 'src/app/NgZorroAntdModule';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,7 +14,7 @@ import { ReservationsComponent } from './components/reservations/reservations.co
 @NgModule({
   declarations: [
     AdminComponent,
-    DashboardComponent,
+    RoomsComponent,
     AddRoomComponent,
     UpdateRoomComponent,
     ReservationsComponent

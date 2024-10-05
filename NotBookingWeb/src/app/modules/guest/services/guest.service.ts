@@ -29,7 +29,7 @@ export class GuestService {
   }
 
   deleteBooking(iD: number): Observable<any> {
-    return this.http.delete(BASE_URL + `api/guest/bookings/${iD}/delete`, {
+    return this.http.get(BASE_URL + `api/guest/bookings/${iD}/delete`, {
       headers: this.createAuthorizationHeader()
     });
   }

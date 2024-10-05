@@ -3,13 +3,90 @@
 
 # NotBooking
 
-### Version: 0.2.2
+### Version: 0.3.0
 
 A simple yet effective application for Apartment/Hotel management. Built with Angular 16 and Spring Boot 3.2.9.
 
+---
+---
+
 # Installation
 
+To run the application, Angular 16 and Spring Boot 3.2.9 are required with MySQL database (__notBooking_db__) on localhost:3306.
+- Run `/NotBooking/src/main/java/com/StevanZecic/NotBooking/NotBookingApplication.java` as a Java file to start the server-side application
+- Navigate to `/NotBookingWeb` in integrated terminal and execute command ___`ng serve`___ to start the client-side application
+- In the browser, navigate to http://localhost:4200
+
+
+
+---
+---
+
 # Usage
+
+## PRE-LOGIN
+
+### Welcome Screen
+
+![Welcome Screen](files/preview_images/welcome-screen.png)
+
+This is an entry point to the application. Here, user can choose to log in or to register.
+
+### Login/Register Page
+
+![Login Page](files/preview_images/login.png)
+
+Existing users can log in to the application with their credentials (email and password).
+
+![Register Page](files/preview_images/register.png)
+
+New users can fill out a registration form and create an account. Account created this way will recieve a 'guest' role.
+
+---
+
+## ADMIN
+
+### Reservations
+
+![Reservations](files/preview_images/admin-reservations.png)
+
+This page is where admin user can manage reservations: accept or cancel them.
+
+### Dashboard (Rooms preview)
+
+![Dashboard](files/preview_images/admin-rooms.png)
+
+All existing rooms are listed here. New rooms can be created by clicking on the 'Add Room' button, which redirects to the Add Room page, which can be accessed by 'Create Room' menu item as well.
+
+### Create Room
+
+![Create Room](files/preview_images/admin-add-room.png)
+
+This is a page for adding new rooms. Filling out the form and clicking the 'Submit' button adds new room to the database.
+
+---
+
+## GUEST
+
+### Reservations
+
+![Reservations](files/preview_images/guest-reservations.png)
+
+All reservations created by the current user are listed on this page. Reservations with 'Pending' or 'Confirmed' status can be edited or cancelled. When edit is performed, the reservation is marked as 'cancelled' and new reservation request is created with the new dates.
+
+### Rooms
+
+![Rooms](files/preview_images/guest-rooms.png)
+
+All available rooms are listed on this page. User can choose a room and create a booking request for it.
+
+### Booking a room
+
+![Booking](files/preview_images/book-room.png)
+
+With a chosen room, user selects dates for the booking request and sends it to be reviewed by the admin.
+
+
 
 ---
 ---
@@ -86,5 +163,15 @@ A simple yet effective application for Apartment/Hotel management. Built with An
 - 0.2.2 - _Welcome Screen_
   - Welcome screen added to NotBookingWeb client application
   - It is displayed before the user logs in and after login before the page is chosen
+- 0.3.0 - _Bookings editing_
+  - Bookings cancellation and editing logic changed:
+    - If 'guest' cancels a booking, it is is marked as cancelled; that room is set as available
+    - If 'guest' edits a booking, it is set as cancelled and new booking request with chosed dates is created
+  - First version functionalities completed both for server-side and client-side applications
+  - Minor fixes and structural changes
+    - component /admin/dashboard renamed to /admin/rooms
+    - url /guest/bookings renamed to /guest/reservations
+  - Screenshots and walkthrough added to README.md
+
 - - -
 - - -

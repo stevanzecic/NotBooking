@@ -47,7 +47,11 @@ public class ReservationServiceImpl implements ReservationService {
             }
             reservationRepository.save(res);
             Room room = res.getRoom();
-            room.setAvailable(false);
+            if (res.getResStatus() == ReservStatus.CONFIRMED) {
+                room.setAvailable(false);
+            } else {
+                room.setAvailable(true);
+            }
             roomRepository.save(room);
             return true;
         }

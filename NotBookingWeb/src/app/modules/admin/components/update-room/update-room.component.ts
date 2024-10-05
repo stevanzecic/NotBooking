@@ -34,7 +34,7 @@ export class UpdateRoomComponent {
   submitForm() {
     this.adminService.updateRoom(this.iD, this.roomDetailsForm.value).subscribe(res => {
       this.message.success(`Room details updated successfully`, { nzDuration: 5000 });
-      this.router.navigateByUrl('/admin/dashboard');
+      this.router.navigateByUrl('/admin/rooms');
     }, error => {
       this.message.error(`${error.error}`, { nzDuration: 5000 });
     })

@@ -7,7 +7,7 @@ import { BookingsViewComponent } from './components/bookings-view/bookings-view.
 const routes: Routes = [
   { path: '', component: GuestComponent },
   { path: 'rooms', component: RoomsComponent },
-  { path: 'bookings', component: BookingsViewComponent }
+  { path: 'reservations', component: BookingsViewComponent }
 ];
 
 @NgModule({

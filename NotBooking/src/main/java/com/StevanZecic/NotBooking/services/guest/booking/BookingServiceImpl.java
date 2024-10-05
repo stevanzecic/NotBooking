@@ -1,6 +1,5 @@
  package com.StevanZecic.NotBooking.services.guest.booking;
 
-import java.lang.StackWalker.Option;
 import java.time.temporal.ChronoUnit;
 import java.util.Optional;
 
@@ -66,7 +65,12 @@ public class BookingServiceImpl implements BookingService {
     public void deleteReservation(Long iD) {
         Optional<Reservation> res = reservationRepository.findById(iD);
         if (res.isPresent()) {
-            reservationRepository.deleteById(iD);
+            Reservation reservation = res.get();
+            reservation.setResStatus(ReservStatus.CANCELLED);
+            reservationRepository.save(reservation);
+            Room room = reservation.getRoom();
+            room.setAvailable(true);
+            roomRepository.save(room);
         } else {
             throw new EntityNotFoundException("Reservation not found");
         }

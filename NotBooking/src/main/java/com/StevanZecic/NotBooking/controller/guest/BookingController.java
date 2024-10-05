@@ -44,7 +44,7 @@ public class BookingController {
         }
     }
 
-    @RequestMapping(value="/bookings/{iD}/delete", method=RequestMethod.DELETE)
+    @RequestMapping(value="/bookings/{iD}/delete", method=RequestMethod.GET)
     public ResponseEntity<?> deleteReservation(@PathVariable Long iD) {
         try {
             bookingService.deleteReservation(iD);
