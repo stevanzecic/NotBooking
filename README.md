@@ -52,7 +52,7 @@ New users can fill out a registration form and create an account. Account create
 
 This page is where admin user can manage reservations: accept or cancel them.
 
-### Dashboard (Rooms preview)
+### Rooms
 
 ![Dashboard](files/preview_images/admin-rooms.png)
 
